@@ -41,11 +41,12 @@ def fitness(network):
 print("starting")
 
 gen = neat.Generation(40, BOARD_WIDTH * BOARD_HEIGHT, BOARD_WIDTH * 4)
-fitnesses = [fitness(n) for n in gen.nns]
 for i in range(GENERATIONS):
     gen = neat.Generation(40, prev=gen, fitness=fitness)
     print("Fitness for generation {} is".format(i), gen.bestPrev)
-    print("Finished generation {}.".format(i+1))
+    print("Finished generation {}.".format(i))
+fitnesses = [fitness(n) for n in gen.nns]
+print(fitnesses)
 
 
 
